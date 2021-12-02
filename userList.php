@@ -82,7 +82,6 @@
                 </div>
             <?php }
             unset($_SESSION['updateUser']); ?>
-            <!-- dont know a way to create user where the admin knows user password -->
             <a href="userCrud/createUser.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Create New User</a>
             <?php include 'db.php';
 

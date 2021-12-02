@@ -4,7 +4,7 @@ session_start();
 require('db.php');
 
 if (isset($_SESSION['username'])) { //check if user is logged in
-    if ($_POST['password'] != '') { //check if request fields are not empty
+    if ($_POST['password'] != '') { //check if certain request fields are not empty
         $username = mysqli_real_escape_string($con, $_POST['username']);
         $password =  mysqli_real_escape_string($con, $_POST['password']);
         $email =  mysqli_real_escape_string($con, $_POST['email']);

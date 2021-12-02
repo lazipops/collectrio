@@ -3,6 +3,7 @@
 include '../db.php';
 
 session_start();
+//create table for new user without table
 $query = "CREATE TABLE user".$_SESSION['id']."_roms (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     title TEXT,

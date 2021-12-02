@@ -4,7 +4,7 @@
 <?php session_start(); ?>
 
 <?php if (isset($_SESSION['username'])) {
-    if (isset($_POST['edit'])) {
+    if (isset($_POST['edit'])) { //check if post request is coming in
         $id = $_POST["id"];
         $title = $_POST["title"];
         $genre = $_POST["genre"];

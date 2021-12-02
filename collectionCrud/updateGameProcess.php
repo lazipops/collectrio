@@ -2,7 +2,7 @@
 include '../db.php';
 session_start();
 
-if (isset($_POST['changeRec'])) {
+if (isset($_POST['changeRec'])) { //check for specific post request
     $id = $_POST['id'];
     $title = $_POST['title'];
     $genre = $_POST['genre'];

@@ -40,7 +40,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="profile.php">Profile</a>
                         </li>
-                        <?php if (isset($_SESSION['admin']) && ($_SESSION['admin'] > 0 || $_SESSION['admin'] === true)) { ?>
+                        <?php if (isset($_SESSION['admin']) && ($_SESSION['admin'] > 0 || $_SESSION['admin'] === true)) { //check if user has admin status?>
                             <li class="nav-item">
                                 <a class="nav-link" href="userList.php">User List</a>
                             </li>
