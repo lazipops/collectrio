@@ -1,0 +1,63 @@
+#titleNav {
+    font-family: 'Risque';
+    font-size: 42px;
+  }
+
+  a {
+    font-family: 'Roboto';
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1386px) {}
+
+  nav li {
+    list-style: none;
+    margin: 0 5px 0 5px;
+    padding: 5px;
+  }
+
+  .loginBox {
+    padding: 20px;
+    margin: 20px auto;
+    width: 25%;
+    height: auto;
+  }
+
+  .errorBox {
+    padding: 5px;
+    margin: 20px auto;
+    width: 25%;
+    height: auto;
+    border: 1px solid black;
+  }
+
+  button {
+    width: 100%;
+  }
+
+
+  .linksInline {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    margin: 20px auto;
+    width: auto;
+    height: auto;
+  }
+
+  .forPass, .signUp {
+    font-size: 18px;
+    color: white;
+  }
+
+  .signUpHome {
+    color: black;
+  }
+
+  .noDisplay {
+    display: none;
+  }
+
+  .target {
+    display: none;
+  }
