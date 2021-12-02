@@ -86,54 +86,56 @@
             <a href="userCrud/createUser.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Create New User</a>
             <?php include 'db.php';
 
-            $query = "SELECT * FROM users WHERE NOT username='" . $_SESSION['username'] . "'";
-            $result = mysqli_query($con, $query);
-            if (!mysqli_num_rows($result) > 0) { ?>
-                <div>
-                    <p>No other users seem to be registered</p>
-                </div>
-            <?php } else { ?>
-                <form action="userCrud/userSearchResult.php" method="post">
-                    <input type="text" name="search" id="search" placeholder="Search by username">
-                    <input type="submit" name="searchBtn" class="btn btn-success" value="Search">
-                </form>
-                <table class="table table-bordered">
-                    <tr>
-                        <th scope="col">Username</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Account created date</th>
-                        <th scope="col">Admin?</th>
-                        <th scope="col">Edit User</th>
-                        <th scope="col">Delete User</th>
-                    </tr>
-                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            if (isset($_POST['search'])) {
+
+                $query = "SELECT * FROM users WHERE NOT username='" . $_SESSION['username'] . "' AND username LIKE '" . $_POST['search'] . "'";
+                $result = mysqli_query($con, $query);
+                if (!mysqli_num_rows($result) > 0) { ?>
+                    <div>
+                        <p>No other users seem to be registered</p>
+                    </div>
+                <?php } else { ?>
+                    <form action="userCrud/userSearchResult.php" method="post">
+                        <input type="text" name="search" id="search" placeholder="Search by username">
+                        <input type="submit" name="searchBtn" class="btn btn-success" value="Search">
+                    </form>
+                    <table class="table table-bordered">
                         <tr>
-                            <td><?= $row['username'] ?></td>
-                            <td><?= $row['email'] ?></td>
-                            <td><?= $row['trn_date'] ?></td>
-                            <td><?php if ($row['admin'] > 0) { ?>
-                                    <p>Yes</p>
-                                <?php } else { ?>
-                                    <p>No</p>
-                                <?php } ?>
-                            </td>
-                            <td>
-                                <form action="userCrud/updateUser.php" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                    <input type="text" name="username" placeholder="Username" value="<?php echo $row['username'] ?>">
-                                    <input type="submit" name="edit" class="btn btn-info" value="EDIT">
-                                </form>
-                            </td>
-                            <td>
-                                <form action="userCrud/deleteUser.php" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                    <input type="submit" name="delete" class="btn btn-danger" value="DELETE">
-                                </form>
-                            </td>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Account created date</th>
+                            <th scope="col">Admin?</th>
+                            <th scope="col">Edit User</th>
+                            <th scope="col">Delete User</th>
                         </tr>
-                    <?php } ?>
-                </table>
-            <?php } ?>
+                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                            <tr>
+                                <td><?= $row['username'] ?></td>
+                                <td><?= $row['email'] ?></td>
+                                <td><?= $row['trn_date'] ?></td>
+                                <td><?php if ($row['admin'] > 0) { ?>
+                                        <p>Yes</p>
+                                    <?php } else { ?>
+                                        <p>No</p>
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <form action="userCrud/updateUser.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                        <input type="text" name="username" placeholder="Username" value="<?php echo $row['username'] ?>">
+                                        <input type="submit" name="edit" class="btn btn-info" value="EDIT">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="userCrud/deleteUser.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                        <input type="submit" name="delete" class="btn btn-danger" value="DELETE">
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                <?php } ?>
         </div>
 
         <div class="container">
@@ -148,6 +150,7 @@
     </body>
 <?php } else { ?>
     <?= header("Location: login.php"); ?>
-<?php } ?>
+<?php }
+        } ?>
 
 </html>
