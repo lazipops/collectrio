@@ -72,7 +72,7 @@
                         <input type="text" class="form-control" id="username" name="username" value="<?= $_SESSION['username']; ?>">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="email" name="email" readonly value="<?= $_SESSION['email']; ?>">
+                        <input type="email" class="form-control" id="email" name="email" value="<?= $_SESSION['email']; ?>">
                     </div>
                     <div class="mb-3">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Update password">

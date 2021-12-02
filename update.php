@@ -18,7 +18,22 @@ if (isset($_SESSION['username'])) { //check if user is logged in
             $_SESSION['flash_message'] = 'Error updating: ' . $con->error;
             header("Location: profile.php");
         }
-    } elseif ($_POST['username'] != '') {
+    } elseif ($_POST['username'] != '' && $_POST['password'] != '' && $_POST['email'] != '') {
+        $username = mysqli_real_escape_string($con, $_POST['username']);
+        $password =  mysqli_real_escape_string($con, $_POST['password']);
+        $email =  mysqli_real_escape_string($con, $_POST['email']);
+        $id = $_SESSION['id'];
+
+        $query = "UPDATE users SET username = '$username', email = '$email', passhash = '" . md5($password) . "' WHERE id = '$id'";
+        if ($con->query($query) === TRUE) {
+            $_SESSION['flash_message'] = 'Your account details have been changed';
+            $_SESSION['username'] = $_POST['username'];
+            header("Location: profile.php");
+        } else {
+            $_SESSION['flash_message'] = 'Error updating: ' . $con->error;
+            header("Location: profile.php");
+        }
+    }elseif ($_POST['username'] != '') {
         $username = mysqli_real_escape_string($con, $_POST['username']);
         $id = $_SESSION['id'];
 
