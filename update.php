@@ -14,6 +14,7 @@ if (isset($_SESSION['username'])) { //check if user is logged in
         if ($con->query($query) === TRUE) {
             $_SESSION['flash_message'] = 'Your account details have been changed';
             $_SESSION['username'] = $_POST['username'];
+            $_SESSION['email'] = $_POST['email'];
             header("Location: profile.php");
         } else {
             $_SESSION['flash_message'] = 'Error updating: ' . $con->error;
@@ -28,6 +29,7 @@ if (isset($_SESSION['username'])) { //check if user is logged in
         if ($con->query($query) === TRUE) {
             $_SESSION['flash_message'] = 'Your account details have been changed';
             $_SESSION['username'] = $_POST['username'];
+            $_SESSION['email'] = $_POST['email'];
             header("Location: profile.php");
         } else {
             $_SESSION['flash_message'] = 'Error updating: ' . $con->error;
