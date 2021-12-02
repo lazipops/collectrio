@@ -32,24 +32,24 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav justify-content-around">
                         <li class="nav-item">
-                            <a class="nav-link" href="nav.php">Home</a>
+                            <a class="nav-link" href="../nav.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Logout</a>
+                            <a class="nav-link" href="../logout.php">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">Profile</a>
+                            <a class="nav-link" href="../profile.php">Profile</a>
                         </li>
                         <?php if (isset($_SESSION['admin']) && ($_SESSION['admin'] > 0 || $_SESSION['admin'] === true)) { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="userList.php">User List</a>
+                                <a class="nav-link" href="../userList.php">User List</a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="collection.php">Collection</a>
+                            <a class="nav-link" href="../collection.php">Collection</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact</a>
+                            <a class="nav-link" href="../contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +71,7 @@
                 $result = mysqli_query($con, $query);
                 if ($result !== false) {
             ?>
-                    <form action="collectionCrud/collectionSearchResult.php" method="post">
+                    <form action="collectionSearchResult.php" method="post">
                         <input type="text" name="search" id="search" placeholder="Search by title">
                         <input type="submit" name="searchBtn" class="btn btn-success" value="Search">
                     </form>
@@ -115,7 +115,7 @@
                     </table>
                 <?php } else { ?>
                     <div>
-                        <p>No collection was found. Click <a href="collectionCrud/createCollection.php">here</a> to create one.</p>
+                        <p>No collection was found. Click <a href="createCollection.php">here</a> to create one.</p>
                     </div>
             <?php }
             } ?>

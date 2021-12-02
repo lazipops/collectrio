@@ -13,11 +13,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href='https://fonts.googleapis.com/css?family=Risque' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-        <link rel="stylesheet" href="css/navStyle.css">
-        <link rel="stylesheet" href="css/loginStyle.css">
+        <link rel="stylesheet" href="../css/navStyle.css">
+        <link rel="stylesheet" href="../css/loginStyle.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <script text="text/javascript" src="js/jQuery.js"></script>
-        <script text="text/javascript" src="js/fadeIn.js"></script>
+        <script text="text/javascript" src="../js/jQuery.js"></script>
+        <script text="text/javascript" src="../js/fadeIn.js"></script>
         <title>Collectrio!</title>
     </head>
 
@@ -32,25 +32,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav justify-content-around">
                         <li class="nav-item">
-                            <a class="nav-link" href="nav.php">Home</a>
+                            <a class="nav-link" href="../nav.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Logout</a>
+                            <a class="nav-link" href="../logout.php">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">Profile</a>
+                            <a class="nav-link" href="../profile.php">Profile</a>
                         </li>
                         <?php if (isset($_SESSION['admin']) && ($_SESSION['admin'] > 0 || $_SESSION['admin'] === true)) { //check if logged in user has admin status
                         ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="userList.php">User List</a>
+                                <a class="nav-link" href="../userList.php">User List</a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="collection.php">Collection</a>
+                            <a class="nav-link" href="../collection.php">Collection</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact</a>
+                            <a class="nav-link" href="../contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -83,8 +83,8 @@
             <?php }
             unset($_SESSION['updateUser']); ?>
             <!-- dont know a way to create user where the admin knows user password -->
-            <a href="userCrud/createUser.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Create New User</a>
-            <?php include 'db.php';
+            <a href="createUser.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Create New User</a>
+            <?php include '../db.php';
 
             if (isset($_POST['search'])) {
 
@@ -95,7 +95,7 @@
                         <p>No other users seem to be registered</p>
                     </div>
                 <?php } else { ?>
-                    <form action="userCrud/userSearchResult.php" method="post">
+                    <form action="userSearchResult.php" method="post">
                         <input type="text" name="search" id="search" placeholder="Search by username">
                         <input type="submit" name="searchBtn" class="btn btn-success" value="Search">
                     </form>
@@ -120,14 +120,14 @@
                                     <?php } ?>
                                 </td>
                                 <td>
-                                    <form action="userCrud/updateUser.php" method="post">
+                                    <form action="updateUser.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                                         <input type="text" name="username" placeholder="Username" value="<?php echo $row['username'] ?>">
                                         <input type="submit" name="edit" class="btn btn-info" value="EDIT">
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="userCrud/deleteUser.php" method="post">
+                                    <form action="deleteUser.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                                         <input type="submit" name="delete" class="btn btn-danger" value="DELETE">
                                     </form>
@@ -149,7 +149,7 @@
         </script>
     </body>
 <?php } else { ?>
-    <?= header("Location: login.php"); ?>
+    <?= header("Location: ../login.php"); ?>
 <?php }
         } ?>
 
