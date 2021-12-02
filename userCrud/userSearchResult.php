@@ -24,7 +24,7 @@
     <body>
         <div class="justify-content-around">
             <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-                <img class="navbar-brand" src="imgs/logo.png" id="logo" />
+                <img class="navbar-brand" src="../imgs/logo.png" id="logo" />
                 <p class="navbar-brand" id="titleNav">Collectrio</p>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
