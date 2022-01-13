@@ -56,7 +56,7 @@
         </div>
 
         <div class="mainContent target">
-            <h1>Welcome to Collectrio!</h1>
+            <h1>Welcome <?= $_SESSION['username'] ?>!</h1>
             <p>This is my capstone, which will demonstrate that I understand CRUD concepts like deleting records, managing databases, creating a login system, ect.
                 If you have any questions, please refer to the contact page if you would like to give me suggestions or tips.
             </p>
