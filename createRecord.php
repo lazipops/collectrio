@@ -74,6 +74,9 @@
                     <div class="mb-3">
                         <input type="text" class="form-control" id="platform" name="platform" placeholder="Platform">
                     </div>
+                    <div class="mb-3">
+                        <input type="number" class="form-control" id="rating" name="rating" placeholder="Rating (from 0 to 100)">
+                    </div>
                     <button type="submit" class="btn btn-success" name="recordSubmit">Create</button>
                 </div>
             </form>

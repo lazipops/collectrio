@@ -8,9 +8,10 @@ if (isset($_POST['recordSubmit'])) {
     $releaseDate = $_POST['releaseDate'];
     $developer = $_POST['developer'];
     $platform = $_POST['platform'];
+    $rating = $_POST['rating'];
 
-    $result = mysqli_query($con, "INSERT INTO user" . $_SESSION['id'] . "_roms (title, genre, releaseDate, developer, platform) 
-    VALUES ('$title', '$genre', '$releaseDate', '$developer', '$platform')");
+    $result = mysqli_query($con, "INSERT INTO user" . $_SESSION['id'] . "_roms (title, genre, releaseDate, developer, platform, rating) 
+    VALUES ('$title', '$genre', '$releaseDate', '$developer', '$platform', '$rating')");
 
     if ($result) {
         $_SESSION['createRecord'] = 'Record successfully made!';
